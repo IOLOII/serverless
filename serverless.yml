@@ -1,0 +1,33 @@
+component: http
+name: http-express-82RY-Dxjjx
+inputs:
+  src:
+    src: ./
+    exclude:
+      - .env
+  faas:
+    framework: express
+    name: '${name}'
+    runtime: Nodejs12.16
+    eip: false
+    timeout: 3
+    memorySize: 64
+    tags: []
+    environments:
+      - key: version
+        value: '1.0'
+    layers:
+      - name: '${output:${stage}:${app}:dev-api-layer.name}'
+        version: '${output:${stage}:${app}:dev-api-layer.version}'
+  apigw:
+    protocols:
+      - http
+      - https
+    timeout: 60
+    environment: release
+    customDomains: []
+  region: ap-guangzhou
+  isAutoCiDeploy: false
+org: '1253108538'
+app: dev-api
+stage: dev
