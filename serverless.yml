@@ -1,41 +1,25 @@
-component: http
-name: http-express-MCvgX54Rax
-inputs:
-  src:
+# 此 yml 仅做参考，请按照您的函数实际信息进行配置
+
+component: scf
+name: webDemo
+inputs: 
+  src: 
     src: ./
-    exclude:
+    exclude: 
       - .env
-  faas:
-    framework: express
-    name: '${name}'
-    runtime: Nodejs12.16
-    eip: false
-    timeout: 3
-    memorySize: 256
-    tags: []
-    environments: []
-    layers:
-      - name: '${output:${stage}:${app}:api-layer.name}'
-        version: '${output:${stage}:${app}:api-layer.version}'
-  apigw:
-    protocols:
-      - http
-      - https
-    timeout: 60
-    environment: release
-    customDomains:
-      - domain: api.imissyou.today
-        certId: xNYiMDMr
-        protocols:
-          - http
-          - https
-        pathMap:
-          - path: /
-            environment: release
-        customMap: true
-        isDefaultMapping: false
+  # 指定 SCF 类型为 Web 类型
+  type: web
+  name: ${name} # 填入您的函数名称
   region: ap-guangzhou
-  isAutoCiDeploy: false
-org: '1253108538'
-app: api
-stage: dev
+  runtime: Nodejs12.16
+  memorySize: 512 # 内存大小，为保证性能，web 函数请配置 512 MB 及以上
+  events: 
+    - apigw: 
+        parameters: 
+          protocols: 
+            - http
+            - https
+          environment: release
+          endpoints: 
+            - path: /
+              method: ANY
