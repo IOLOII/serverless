@@ -1,5 +1,5 @@
 component: http
-name: http-express-82RY-Dxjjx
+name: http-express-MCvgX54Rax
 inputs:
   src:
     src: ./
@@ -11,23 +11,31 @@ inputs:
     runtime: Nodejs12.16
     eip: false
     timeout: 3
-    memorySize: 64
+    memorySize: 256
     tags: []
-    environments:
-      - key: version
-        value: '1.0'
+    environments: []
     layers:
-      - name: '${output:${stage}:${app}:dev-api-layer.name}'
-        version: '${output:${stage}:${app}:dev-api-layer.version}'
+      - name: '${output:${stage}:${app}:api-layer.name}'
+        version: '${output:${stage}:${app}:api-layer.version}'
   apigw:
     protocols:
       - http
       - https
     timeout: 60
     environment: release
-    customDomains: []
+    customDomains:
+      - domain: api.imissyou.today
+        certId: xNYiMDMr
+        protocols:
+          - http
+          - https
+        pathMap:
+          - path: /
+            environment: release
+        customMap: true
+        isDefaultMapping: false
   region: ap-guangzhou
   isAutoCiDeploy: false
 org: '1253108538'
-app: dev-api
+app: api
 stage: dev

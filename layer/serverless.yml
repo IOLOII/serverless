@@ -1,10 +1,10 @@
 org: '1253108538'
-app: dev-api
+app: api
 stage: dev
 component: layer
-name: dev-api-layer
+name: api-layer
 inputs:
-  name: dev-api-layer
+  name: api-layer
   region: ap-guangzhou
   src:
     src: ../node_modules
