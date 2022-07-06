@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cn">
   <head>
     <meta charset="UTF-8" />
+    <!-- <link rel="icon" href="./favoicon.ico"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Serverless Express.js 应用" />
-    <meta name="keywords" content="express,express.js,serverless,无服务" />
-    <title>Serverless - Express.js</title>
+    <!-- <meta name="description" content="Serverless Express.js 应用" />
+    <meta name="keywords" content="express,express.js,serverless,无服务" /> -->
+    <title>IMISSYOU.TODAY💘</title>
     <style lang="css">
       * {
         margin: 0;
@@ -25,10 +26,63 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 90px;
+        height: 4rem;
         position: fixed;
-        bottom: 0;
+        top: 0;
         width: 100vw;
+
+        background: #f92f6014;
+        backdrop-filter: blur(2.5px);
+        /* border-radius: 2rem; */
+        border-top-left-radius: unset;
+        border-top-right-radius: unset;
+        resize: auto;
+      }
+      a {
+        color: #f92f60;
+        text-shadow: unset;
+        transition: all 0.3s ease;
+      }
+      a:link {
+        color: #f92f60;
+      }
+      a:visited {
+        color: #f92f6085;
+      }
+      a:hover {
+        color: #ff003e;
+        text-shadow: 0 0 5px #f92f6066;
+      }
+      a:active {
+        color: #ff003e;
+      }
+      /*---滚动条默认显示样式--*/
+      ::-webkit-scrollbar-thumb {
+        background-color: #a8a8a8ce;
+        height: 50px;
+        outline-offset: -2px;
+        outline: 2px solid #ffffff80;
+        -webkit-border-radius: 4px;
+        border: 2px solid #fff;
+      }
+
+      /*---鼠标点击滚动条显示样式--*/
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: #fb4446;
+        height: 50px;
+        -webkit-border-radius: 4px;
+      }
+
+      /*---滚动条大小--*/
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      /*---滚动框背景样式--*/
+      ::-webkit-scrollbar-track-piece {
+        background-color: #e7e7e7ce;
+        -webkit-border-radius: 0;
       }
     </style>
   </head>
@@ -38,7 +92,7 @@
       <br />
       <h1>IMISSYOU.TODAY💘</h1>
       <br />
-      <h1>👨🏻‍💻</h1>
+      <h1 style="cursor: help">👨🏻‍💻</h1>
     </div>
     <footer>
       <a href="https://beian.miit.gov.cn/" target="_blank"
